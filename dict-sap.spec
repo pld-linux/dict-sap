@@ -7,8 +7,8 @@ Group:		Applications/Dictionaries
 Group(pl):	Aplikacje/S³owniki
 Source:		%{name}-%{version}.tar.gz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-BuildRequires:	/usr/bin/dictzip
-BuildRequires:	/usr/bin/perl
+BuildRequires:	dictzip
+BuildRequires:	perl
 Requires:	dictd
 Requires:	%{_sysconfdir}/dictd
 BuildArch:	noarch
