@@ -30,8 +30,8 @@ sformatowane do u¿ycia z serwerem s³ownika dictd.
 
 %build
 %{__autoconf}
-cp -f %{_datadir}/automake/install-sh .
-cp -f %{_datadir}/automake/config.sub .
+cp -f /usr/share/automake/install-sh .
+cp -f /usr/share/automake/config.sub .
 %configure
 %{__make} db
 
