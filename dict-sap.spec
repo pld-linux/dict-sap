@@ -9,9 +9,9 @@ Source:		%{name}-%{version}.tar.gz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	dictzip
 BuildRequires:	perl
+BuildRequires:	autoconf
 Requires:	dictd
 Requires:	%{_sysconfdir}/dictd
-BuildArch:	noarch
 
 %description 
 This package contains sap - English-Polish and Polish-English
@@ -21,6 +21,7 @@ dictionary version 0.1b, formatted for use by the DICT server.
 %setup -q
 
 %build
+autoconf
 %configure 
 %{__make} db 
 
