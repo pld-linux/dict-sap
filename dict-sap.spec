@@ -6,12 +6,13 @@ Release:	1
 License:	GPL
 Group:		Applications/Dictionaries
 Source0:	%{name}-%{version}.tar.gz
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
+URL:		http://www.dict.org/
+BuildRequires:	autoconf
 BuildRequires:	dictzip
 BuildRequires:	perl
-BuildRequires:	autoconf
 Requires:	dictd
 Requires:	%{_sysconfdir}/dictd
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 This package contains sap - English-Polish and Polish-English
@@ -31,33 +32,33 @@ sformatowane do u¿ycia z serwerem s³ownika dictd.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/dictd/,%{_bindir},%{_sysconfdir}/dictd}
+install -d $RPM_BUILD_ROOT{%{_datadir}/dictd/,%{_sysconfdir}/dictd,%{_bindir}}
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 for dictname in sap_en-pl sap_pl-en; do
     dictprefix=%{_datadir}/dictd/$dictname
     echo "# sap dictionary, part $dictname
 database $dictname {
-    data  \"$dictprefix.dict.dz\"
-    index \"$dictprefix.index\"
+	data  \"$dictprefix.dict.dz\"
+	index \"$dictprefix.index\"
 }" > $RPM_BUILD_ROOT%{_sysconfdir}/dictd/$dictname.dictconf
 done
 
 %clean
 rm -rf $RPM_BUILD_ROOT
 
-%postun
-if [ -f /var/lock/subsys/dictd ]; then
-	/etc/rc.d/init.d/dictd restart 1>&2 || true
-fi
-
 %post
 if [ -f /var/lock/subsys/dictd ]; then
 	/etc/rc.d/init.d/dictd restart 1>&2
 fi
 
+%postun
+if [ -f /var/lock/subsys/dictd ]; then
+	/etc/rc.d/init.d/dictd restart 1>&2 || true
+fi
+
 %files
 %defattr(644,root,root,755)
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/dictd/*.dictconf
+%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/dictd/sap_*.dictconf
 %attr(755,root,root) %{_bindir}/sapdict
 %{_datadir}/dictd/sap_*
