@@ -32,7 +32,7 @@ sformatowane do u¿ycia z serwerem s³ownika dictd.
 
 %install
 rm -rf $RPM_BUILD_ROOT
-install -d $RPM_BUILD_ROOT{%{_datadir}/dictd/,%{_sysconfdir}/dictd,%{_bindir}}
+install -d $RPM_BUILD_ROOT{%{_datadir}/dictd,%{_sysconfdir}/dictd,%{_bindir}}
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 for dictname in sap_en-pl sap_pl-en; do
