@@ -8,6 +8,7 @@ Group:		Applications/Dictionaries
 Source0:	%{name}-%{version}.tar.gz
 URL:		http://www.dict.org/
 BuildRequires:	autoconf
+BuildRequires:	automake
 BuildRequires:	dictzip
 BuildRequires:	perl
 Requires:	dictd
