@@ -2,7 +2,7 @@ Summary:	sap - English-Polish and vice versa dictionary for dictd
 Summary(pl):	sap - s³ownik angielsko-polski i odwrotnie dla dictd
 Name:		dict-sap
 Version:	0.1b_0.1
-Release:	3
+Release:	4
 License:	GPL
 Group:		Applications/Dictionaries
 Source0:	%{name}-%{version}.tar.gz
@@ -14,6 +14,7 @@ BuildRequires:	dictzip
 BuildRequires:	%{_bindir}/perl
 Requires:	dictd
 Requires:	%{_sysconfdir}/dictd
+Requires:	dict
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
