@@ -13,7 +13,7 @@ BuildRequires:	autoconf
 Requires:	dictd
 Requires:	%{_sysconfdir}/dictd
 
-%description 
+%description
 This package contains sap - English-Polish and Polish-English
 dictionary version 0.1b, formatted for use by the DICT server.
 
@@ -26,8 +26,8 @@ sformatowane do u¿ycia z serwerem s³ownika dictd.
 
 %build
 autoconf
-%configure 
-%{__make} db 
+%configure
+%{__make} db
 
 %install
 rm -rf $RPM_BUILD_ROOT
