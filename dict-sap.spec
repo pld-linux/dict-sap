@@ -5,8 +5,6 @@ Version:	0.1b_0.1
 Release:	1
 License:	GPL
 Group:		Applications/Dictionaries
-Group(de):	Applikationen/Wörterbücher
-Group(pl):	Aplikacje/S³owniki
 Source0:	%{name}-%{version}.tar.gz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	dictzip
