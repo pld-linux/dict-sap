@@ -10,7 +10,7 @@ URL:		http://www.dict.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dictzip
-BuildRequires:	perl
+BuildRequires:	%{_bindir}/perl
 Requires:	dictd
 Requires:	%{_sysconfdir}/dictd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
