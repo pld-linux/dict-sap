@@ -36,8 +36,8 @@ install -d $RPM_BUILD_ROOT{%{_datadir}/dictd/,%{_sysconfdir}/dictd,%{_bindir}}
 %{__make} install DESTDIR=$RPM_BUILD_ROOT
 
 for dictname in sap_en-pl sap_pl-en; do
-    dictprefix=%{_datadir}/dictd/$dictname
-    echo "# sap dictionary, part $dictname
+	dictprefix=%{_datadir}/dictd/$dictname
+	echo "# sap dictionary, part $dictname
 database $dictname {
 	data  \"$dictprefix.dict.dz\"
 	index \"$dictprefix.index\"
