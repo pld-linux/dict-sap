@@ -1,11 +1,13 @@
 Summary:	sap - English-Polish and vice versa dictionary for dictd
+Summary(pl):	sap - s這wnik angielsko-polski i odwrotnie dla dictd
 Name:		dict-sap
 Version:	0.1b_0.1
 Release:	1
 License:	GPL
 Group:		Applications/Dictionaries
+Group(de):	Applikationen/W顤terb�cher
 Group(pl):	Aplikacje/S這wniki
-Source:		%{name}-%{version}.tar.gz
+Source0:	%{name}-%{version}.tar.gz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 BuildRequires:	dictzip
 BuildRequires:	perl
@@ -16,6 +18,10 @@ Requires:	%{_sysconfdir}/dictd
 %description 
 This package contains sap - English-Polish and Polish-English
 dictionary version 0.1b, formatted for use by the DICT server.
+
+%description -l pl
+Ten pakiet zawiera sap - s這wnik angielsko-polski i polsko-angielski
+sformatowane do u篡cia z serwerem s這wnika dictd.
 
 %prep
 %setup -q
