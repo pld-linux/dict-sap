@@ -37,7 +37,9 @@ cp -f %{_datadir}/automake/config.sub .
 %install
 rm -rf $RPM_BUILD_ROOT
 install -d $RPM_BUILD_ROOT{%{_datadir}/dictd,%{_sysconfdir}/dictd,%{_bindir}}
-%{__make} install DESTDIR=$RPM_BUILD_ROOT
+
+%{__make} install \
+	DESTDIR=$RPM_BUILD_ROOT
 
 for dictname in sap_en-pl sap_pl-en; do
 	dictprefix=%{_datadir}/dictd/$dictname
