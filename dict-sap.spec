@@ -6,6 +6,7 @@ Release:	1
 License:	GPL
 Group:		Applications/Dictionaries
 Source0:	%{name}-%{version}.tar.gz
+# Source0-md5:	7d53db1c78a0662d1ebb10b0912caa9a
 URL:		http://www.dict.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
