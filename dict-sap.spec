@@ -8,13 +8,13 @@ Group:		Applications/Dictionaries
 Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	7d53db1c78a0662d1ebb10b0912caa9a
 URL:		http://www.dict.org/
+BuildRequires:	%{_bindir}/perl
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dictzip
-BuildRequires:	%{_bindir}/perl
-Requires:	dictd
 Requires:	%{_sysconfdir}/dictd
 Requires:	dict
+Requires:	dictd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -66,6 +66,6 @@ fi
 
 %files
 %defattr(644,root,root,755)
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/dictd/sap_*.dictconf
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dictd/sap_*.dictconf
 %attr(755,root,root) %{_bindir}/sapdict
 %{_datadir}/dictd/sap_*
