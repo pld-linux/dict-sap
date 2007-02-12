@@ -1,5 +1,5 @@
 Summary:	sap - English-Polish and vice versa dictionary for dictd
-Summary(pl):	sap - s≥ownik angielsko-polski i odwrotnie dla dictd
+Summary(pl.UTF-8):   sap - s≈Çownik angielsko-polski i odwrotnie dla dictd
 Name:		dict-sap
 Version:	0.1b_0.1
 Release:	4
@@ -21,9 +21,9 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 This package contains sap - English-Polish and Polish-English
 dictionary version 0.1b, formatted for use by the DICT server.
 
-%description -l pl
-Ten pakiet zawiera sap - s≥ownik angielsko-polski i polsko-angielski
-sformatowane do uøycia z serwerem s≥ownika dictd.
+%description -l pl.UTF-8
+Ten pakiet zawiera sap - s≈Çownik angielsko-polski i polsko-angielski
+sformatowane do u≈ºycia z serwerem s≈Çownika dictd.
 
 %prep
 %setup -q
