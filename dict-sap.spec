@@ -1,5 +1,5 @@
 Summary:	sap - English-Polish and vice versa dictionary for dictd
-Summary(pl.UTF-8):   sap - słownik angielsko-polski i odwrotnie dla dictd
+Summary(pl.UTF-8):	sap - słownik angielsko-polski i odwrotnie dla dictd
 Name:		dict-sap
 Version:	0.1b_0.1
 Release:	4
