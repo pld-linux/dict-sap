@@ -2,7 +2,7 @@ Summary:	sap - English-Polish and vice versa dictionary for dictd
 Summary(pl.UTF-8):	sap - słownik angielsko-polski i odwrotnie dla dictd
 Name:		dict-sap
 Version:	0.1b_0.1
-Release:	4
+Release:	5
 License:	GPL
 Group:		Applications/Dictionaries
 Source0:	%{name}-%{version}.tar.gz
@@ -12,6 +12,7 @@ BuildRequires:	%{_bindir}/perl
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dictzip
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	%{_sysconfdir}/dictd
 Requires:	dict
 Requires:	dictd
@@ -55,13 +56,11 @@ done
 rm -rf $RPM_BUILD_ROOT
 
 %post
-if [ -f /var/lock/subsys/dictd ]; then
-	/etc/rc.d/init.d/dictd restart 1>&2
-fi
+%service -q dictd restart
 
 %postun
-if [ -f /var/lock/subsys/dictd ]; then
-	/etc/rc.d/init.d/dictd restart 1>&2 || true
+if [ "$1" = 0 ]; then
+	%service -q dictd restart
 fi
 
 %files
