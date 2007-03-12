@@ -2,18 +2,20 @@ Summary:	sap - English-Polish and vice versa dictionary for dictd
 Summary(pl):	sap - s³ownik angielsko-polski i odwrotnie dla dictd
 Name:		dict-sap
 Version:	0.1b_0.1
-Release:	3
+Release:	5
 License:	GPL
 Group:		Applications/Dictionaries
 Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	7d53db1c78a0662d1ebb10b0912caa9a
 URL:		http://www.dict.org/
+BuildRequires:	%{_bindir}/perl
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	dictzip
-BuildRequires:	%{_bindir}/perl
-Requires:	dictd
+BuildRequires:	rpmbuild(macros) >= 1.268
 Requires:	%{_sysconfdir}/dictd
+Requires:	dict
+Requires:	dictd
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
@@ -29,8 +31,8 @@ sformatowane do u¿ycia z serwerem s³ownika dictd.
 
 %build
 %{__autoconf}
-cp -f %{_datadir}/automake/install-sh .
-cp -f %{_datadir}/automake/config.sub .
+cp -f /usr/share/automake/install-sh .
+cp -f /usr/share/automake/config.sub .
 %configure
 %{__make} db
 
@@ -54,17 +56,15 @@ done
 rm -rf $RPM_BUILD_ROOT
 
 %post
-if [ -f /var/lock/subsys/dictd ]; then
-	/etc/rc.d/init.d/dictd restart 1>&2
-fi
+%service -q dictd restart
 
 %postun
-if [ -f /var/lock/subsys/dictd ]; then
-	/etc/rc.d/init.d/dictd restart 1>&2 || true
+if [ "$1" = 0 ]; then
+	%service -q dictd restart
 fi
 
 %files
 %defattr(644,root,root,755)
-%attr(640,root,root) %config(noreplace) %verify(not size mtime md5) %{_sysconfdir}/dictd/sap_*.dictconf
+%attr(640,root,root) %config(noreplace) %verify(not md5 mtime size) %{_sysconfdir}/dictd/sap_*.dictconf
 %attr(755,root,root) %{_bindir}/sapdict
 %{_datadir}/dictd/sap_*
