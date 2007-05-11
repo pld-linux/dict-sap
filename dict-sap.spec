@@ -7,6 +7,7 @@ License:	GPL
 Group:		Applications/Dictionaries
 Source0:	%{name}-%{version}.tar.gz
 # Source0-md5:	7d53db1c78a0662d1ebb10b0912caa9a
+Patch0:		%{name}-gcc.patch
 URL:		http://www.dict.org/
 BuildRequires:	%{_bindir}/perl
 BuildRequires:	autoconf
@@ -28,6 +29,7 @@ sformatowane do użycia z serwerem słownika dictd.
 
 %prep
 %setup -q
+%patch0 -p1
 
 %build
 %{__autoconf}
