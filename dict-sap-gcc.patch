@@ -1,0 +1,12 @@
+diff -Nur dict-sap-0.1b_0.1.orig/dictfmt.c dict-sap-0.1b_0.1.chng/dictfmt.c
+--- dict-sap-0.1b_0.1.orig/dictfmt.c	2000-08-12 05:37:21.000000000 +0200
++++ dict-sap-0.1b_0.1.chng/dictfmt.c	2007-05-11 20:44:13.000000000 +0200
+@@ -464,7 +464,7 @@
+       }
+       fmt_string(buf);
+       fmt_newline();
+- skip:
++ skip: ;
+    }
+    
+    fmt_newheadword(NULL,0);
